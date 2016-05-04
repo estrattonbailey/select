@@ -349,6 +349,7 @@ var Select = (function (_Evented) {
     value: function bindClick() {
       var _this4 = this;
 
+      console.log(this.target);
       this.target.addEventListener(clickEvent, function (e) {
         e.preventDefault();
         _this4.toggle();

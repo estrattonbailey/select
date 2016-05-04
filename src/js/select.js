@@ -303,6 +303,7 @@ class Select extends Evented {
   }
 
   bindClick() {
+    console.log(this.target)
     this.target.addEventListener(clickEvent, (e) => {
       e.preventDefault();
       this.toggle();
