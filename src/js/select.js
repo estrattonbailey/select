@@ -231,12 +231,16 @@ class Select extends Evented {
     addClass(this.target, 'select-open');
 
     if (this.useNative()) {
-      let event = document.createEvent("MouseEvents");
-      event.initEvent("mousedown", true, true);
+      console.log('Native')
+      let event = document.createEvent("TouchEvent");
+      event.initEvent("touchstart", true, true);
       this.select.dispatchEvent(event);
 
       return;
     }
+
+    console.log('Non-native')
+    console.log(this.drop)
 
     addClass(this.drop, 'select-open');
 
@@ -303,7 +307,6 @@ class Select extends Evented {
   }
 
   bindClick() {
-    console.log(this.target)
     this.target.addEventListener(clickEvent, (e) => {
       e.preventDefault();
       this.toggle();

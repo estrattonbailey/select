@@ -269,12 +269,16 @@ var Select = (function (_Evented) {
       addClass(this.target, 'select-open');
 
       if (this.useNative()) {
-        var _event = document.createEvent("MouseEvents");
-        _event.initEvent("mousedown", true, true);
+        console.log('Native');
+        var _event = document.createEvent("TouchEvent");
+        _event.initEvent("touchstart", true, true);
         this.select.dispatchEvent(_event);
 
         return;
       }
+
+      console.log('Non-native');
+      console.log(this.drop);
 
       addClass(this.drop, 'select-open');
 
@@ -349,7 +353,6 @@ var Select = (function (_Evented) {
     value: function bindClick() {
       var _this4 = this;
 
-      console.log(this.target);
       this.target.addEventListener(clickEvent, function (e) {
         e.preventDefault();
         _this4.toggle();
